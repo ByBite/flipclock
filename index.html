@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flip Clock</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="clock-wrap" aria-label="Aktualna godzina">
+      <section class="clock" aria-live="polite">
+        <div class="flip-card" data-unit="hours">
+          <span class="sr-only">Godzina</span>
+          <div class="card-face card-top"><span class="digit">00</span></div>
+          <div class="card-face card-bottom"><span class="digit">00</span></div>
+          <div class="card-face flip-top"><span class="digit">00</span></div>
+          <div class="card-face flip-bottom"><span class="digit">00</span></div>
+        </div>
+
+        <div class="flip-card" data-unit="minutes">
+          <span class="sr-only">Minuty</span>
+          <div class="card-face card-top"><span class="digit">00</span></div>
+          <div class="card-face card-bottom"><span class="digit">00</span></div>
+          <div class="card-face flip-top"><span class="digit">00</span></div>
+          <div class="card-face flip-bottom"><span class="digit">00</span></div>
+        </div>
+
+        <div class="flip-card" data-unit="seconds">
+          <span class="sr-only">Sekundy</span>
+          <div class="card-face card-top"><span class="digit">00</span></div>
+          <div class="card-face card-bottom"><span class="digit">00</span></div>
+          <div class="card-face flip-top"><span class="digit">00</span></div>
+          <div class="card-face flip-bottom"><span class="digit">00</span></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

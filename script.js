@@ -2,6 +2,7 @@ const units = ["hours", "minutes", "seconds"];
 const cards = new Map(
   units.map((unit) => [unit, document.querySelector(`[data-unit="${unit}"]`)])
 );
+const fullscreenButton = document.querySelector(".fullscreen-button");
 
 function pad(value) {
   return String(value).padStart(2, "0");
@@ -84,6 +85,26 @@ function renderClock(animated = true) {
 }
 
 renderClock(false);
+
+function updateFullscreenButton() {
+  fullscreenButton.setAttribute(
+    "aria-label",
+    document.fullscreenElement ? "Wyjdź z pełnego ekranu" : "Pełny ekran"
+  );
+  fullscreenButton.title = document.fullscreenElement ? "Wyjdź z pełnego ekranu" : "Pełny ekran";
+}
+
+fullscreenButton.addEventListener("click", async () => {
+  if (document.fullscreenElement) {
+    await document.exitFullscreen();
+    return;
+  }
+
+  await document.documentElement.requestFullscreen();
+});
+
+document.addEventListener("fullscreenchange", updateFullscreenButton);
+updateFullscreenButton();
 
 function tickOnSecond() {
   renderClock();
